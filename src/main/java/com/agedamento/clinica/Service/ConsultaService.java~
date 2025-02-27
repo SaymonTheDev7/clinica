@@ -1,0 +1,8 @@
+package com.agedamento.clinica.Service;
+
+import com.agedamento.clinica.Model.Consulta;
+
+public interface ConsultaService {
+
+    
+}

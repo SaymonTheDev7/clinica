@@ -1,0 +1,4 @@
+package com.agedamento.clinica.Service;
+
+public class MailConfig {
+}

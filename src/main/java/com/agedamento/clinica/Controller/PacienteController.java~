@@ -1,0 +1,36 @@
+package com.agedamento.clinica.Controller;
+
+import com.agedamento.clinica.Model.Paciente;
+import com.agedamento.clinica.Service.PacienteServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/pacientes")
+public class PacienteController {
+
+    @Autowired
+    private PacienteServiceImpl pacienteService;
+
+    @PostMapping
+    public Paciente cadastrar(@RequestBody Paciente paciente) {
+        return pacienteService.cadastrar(paciente);
+    }
+
+    @GetMapping("/{id}")
+    public Paciente buscar(@PathVariable Long id) {
+        return pacienteService.buscar(id);
+    }
+
+    @PutMapping("/{id}")
+    public Paciente atualizar(@PathVariable Long id, @RequestBody Paciente paciente) {
+        return pacienteService.atualizar(id, paciente);
+    }
+
+    @GetMapping
+    public List<Paciente> listarTodos() {
+        return pacienteService.listarTodos();
+    }
+}

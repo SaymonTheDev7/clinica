@@ -1,0 +1,4 @@
+package com.agedamento.clinica.Controller;
+
+public class EmailController {
+}

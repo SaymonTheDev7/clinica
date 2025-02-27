@@ -1,0 +1,32 @@
+package com.agedamento.clinica.Controller;
+
+import com.agedamento.clinica.Model.Consulta;
+import com.agedamento.clinica.Service.ConsultaServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+@RestController
+@RequestMapping("/consultas")
+public class ConsultaController {
+
+    @Autowired
+    private ConsultaServiceImpl consultaService;
+
+    @PostMapping
+    public Consulta agendarConsulta(@RequestBody Consulta consulta) {
+        return consultaService.agendarConsulta(consulta);
+    }
+
+    @DeleteMapping("/{id}")
+    public void cancelarConsulta(@PathVariable Long id) {
+        consultaService.cancelarConsulta(id);
+    }
+
+    @GetMapping("/disponibilidade/{medicoId}")
+    public List<LocalDateTime> verificarDisponibilidade(@PathVariable Long medicoId) {
+        return consultaService.verificarDisponibilidade(medicoId);
+    }
+}
